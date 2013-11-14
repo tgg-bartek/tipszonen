@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Picks by ...{% endblock %}
+
+{% block content %}
+<ul>
+	{% for pick in pick_list %}
+		<h3><a href="{% url 'picks:detail' pick.expert.slug pick.slug %}">{{ pick.matchup }}</a></h3>
+		<p>{{ pick.analysis|safe|truncatewords:"50" }}</p>
+	{% empty %}
+		<p>Sorry, no picks are available.</p>
+	{% endfor %}
+</ul>
+{% endblock %}
+

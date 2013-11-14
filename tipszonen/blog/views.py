@@ -7,7 +7,7 @@ class PublishPostsMixin(object):
 	'Return posts ticked as published'
 	def get_queryset(self):
 		queryset = super(PublishPostsMixin, self).get_queryset()
-		return queryset.filter(published=True )
+		return queryset.filter(published=True)
 
 
 class PostListView(PublishPostsMixin, ListView):

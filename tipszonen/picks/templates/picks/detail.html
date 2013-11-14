@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block page_title %}{{ pick.matchup }}, {{ pick.match_date }}{% endblock %}
+
+{% block content %}
+<p>{{ pick.created_at }}</p>
+Pick info: {{ pick.selection }} @{{ pick.odds }}, {{ pick.stake }}/10 at {{ pick.bookmaker }}
+<p>{{ pick.analysis }}</p>
+{{ pick.calculate_profit }}
+{% endblock %}

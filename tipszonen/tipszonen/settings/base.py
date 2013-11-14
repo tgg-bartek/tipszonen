@@ -187,12 +187,14 @@ DJANGO_APPS = (
 
 THIRD_PARTY_APPS = (
     'south',
+    'registration',
     
 )
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
     'blog',
+    'picks',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -237,3 +239,13 @@ LOGGING = {
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
 WSGI_APPLICATION = '%s.wsgi.application' % SITE_NAME
 ########## END WSGI CONFIGURATION
+
+
+########## THIRD_PARTY_APPS SETTINGS
+# registration
+ACCOUNT_ACTIVATION_DAYS = 7
+EMAIL_HOST='localhost'
+EMAIL_PORT=1023
+EMAIL_HOST_USER='username'
+EMAIL_HOST_PASSWORD='password'
+  
