@@ -14,6 +14,7 @@ class PostListView(PublishPostsMixin, ListView):
 	model = Post 
 	template_name = 'blog/index.html'
 	context_object_name = 'published_post_list'
+	paginate_by = 3
 
 class PostDetailView(PublishPostsMixin, DetailView):
 	model = Post 

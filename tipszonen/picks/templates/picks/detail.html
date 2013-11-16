@@ -5,6 +5,6 @@
 {% block content %}
 <p>{{ pick.created_at }}</p>
 Pick info: {{ pick.selection }} @{{ pick.odds }}, {{ pick.stake }}/10 at {{ pick.bookmaker }}
-<p>{{ pick.analysis }}</p>
-{{ pick.calculate_profit }}
+<p>{{ pick.analysis|safe }}</p>
+Profit: {{ pick.calculate_profit }}u
 {% endblock %}

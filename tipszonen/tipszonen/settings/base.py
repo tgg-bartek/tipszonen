@@ -183,11 +183,14 @@ DJANGO_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'django.contrib.comments',
+    
 )
 
 THIRD_PARTY_APPS = (
     'south',
     'registration',
+    'tinymce',
     
 )
 
@@ -195,6 +198,7 @@ THIRD_PARTY_APPS = (
 LOCAL_APPS = (
     'blog',
     'picks',
+    'tipszonen',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -248,4 +252,9 @@ EMAIL_HOST='localhost'
 EMAIL_PORT=1023
 EMAIL_HOST_USER='username'
 EMAIL_HOST_PASSWORD='password'
+
+
+
+
+
   

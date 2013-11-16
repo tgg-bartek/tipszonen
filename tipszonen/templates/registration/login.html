@@ -15,7 +15,8 @@
 <dd>{{ form.username }}</dd>
 <dt><label for="id_password">Password:</label>{% if form.password.errors %} <span class="error">{{ form.password.errors|join:", " }}</span>{% endif %}</dt>
 <dd>{{ form.password }}</dd>
-<input type="checkbox" name="remember_me" value="true" /><label for="id_remember_me">Remember Me</label>
+<input type="checkbox" name="remember_me" value="true" /><label for="id_remember_me">Remember Me</label><br />
+<a href="{% url 'auth_password_reset' %}">Forgot your password?</a>
 <dt><input type="submit" value="Log in" /></dt>
 </dl>
 </form>

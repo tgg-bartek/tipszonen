@@ -4,7 +4,6 @@ from django.shortcuts import render, get_object_or_404
 from .models import Pick, ExpertCategory
 
 
-
 def view_expertcategory(request, exp_slug):
 	exp_cat = get_object_or_404(ExpertCategory, slug=exp_slug)
 	template_name = 'picks/index.html'

@@ -2,6 +2,8 @@ from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 from django.db import models
 
+from tinymce.models import HTMLField
+
 
 class Post(models.Model):
 	created_at = models.DateTimeField(auto_now_add=True, editable=False)
@@ -9,7 +11,7 @@ class Post(models.Model):
 	title = models.CharField(max_length=255)
 	slug = models.SlugField(max_length=255, blank=True, default='', help_text='''
 			Populates automatically. It's advisable you do not change it.''')
-	content = models.TextField()
+	content = HTMLField()
 	published = models.BooleanField(default=True) 
 	author = models.ForeignKey(User)
 

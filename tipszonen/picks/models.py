@@ -10,7 +10,7 @@ class Pick(models.Model):
     slug = models.SlugField(max_length=255, blank=True, default='', help_text='''
             Populates automatically. It's advisable you do not change it.''')
     match_date = models.DateTimeField()
-    selection = models.CharField('your bet', max_length=128)
+    selection = models.CharField('your pick', max_length=128)
     one_unit = 1
     two_unit = 2
     three_unit = 3
@@ -36,7 +36,8 @@ class Pick(models.Model):
 
     odds = models.FloatField(help_text='''Use decimal odds. When floating point,
             put a dot (.) Ex: 1.75''')
-    analysis = models.TextField(blank=True)
+    analysis = models.TextField(blank=True, help_text='''Consider adding
+            competition info, ex: Football - Sweden - Allsvenskan''')
     published = models.BooleanField(default=True) 
     expert = models.ForeignKey('picks.ExpertCategory')
 
@@ -74,8 +75,8 @@ class Pick(models.Model):
         self.odds = float(self.odds) 
         if self.pick_outcome != '?':
             self.pick_outcome = float(self.pick_outcome)
-            if self.pick_outcome <= 0:
-                return '{:0.2f}'.format(self.pick_outcome)    # loss or push
+            if self.pick_outcome <= 0: # loss or push
+                return '{:0.2f}'.format(self.pick_outcome * self.stake) 
             return '{:0.2f}'.format((self.pick_outcome * self.stake * 
                         self.odds) - (self.stake * self.pick_outcome))
         return self.pick_outcome  # `?`

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block page_title %}<h2>Blog latest entries</h2>{% endblock %}
+{% block page_title %}Blog latest entries{% endblock %}
 
 {% block content %}
 <ul>
@@ -11,5 +11,15 @@
 		<p>Sorry, no posts are available.</p>
 	{% endfor %}
 </ul>
+{% if is_paginated %}
+<div class="pagination">
+	{% if page_obj.has_previous %}
+	<a href="?page={{ page_obj.previous_page_number }}">&laquo; Prev</a>
+	{% endif %}
+	{% if page_obj.has_next %}
+	<a href="?page={{ page_obj.next_page_number }}">Next &raquo;</a>
+	{% endif %}
+</div>
+{% endif %}
 {% endblock %}
 
